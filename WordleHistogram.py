@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 
 fname = input("Enter file name: ")
 if len(fname) < 1:
-    fname = "WordleList.txt"
+    fname = "AlphaWordle.txt"
 text = open(fname)
 
 letters = dict()
