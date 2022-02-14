@@ -53,13 +53,23 @@ for ltr in letters :
 vals = letters.values()
 total = sum(vals)
 
+print('Most Common Letter')
 prob_dict = {}
 for k, v in letters.items():
     prob_dict[k] = (v / total)*100
     print("probabililty of", k, "=", prob_dict[k], "%")
+    
+print("Probability of Starting Pairs")
+pair_prob = {}
+for k,v in pairs.items():
+    pair_prob[k] = (v/2315)*100
+    print("probabililty of", k, "=", pair_prob[k], "%")
 
-import pprint
-pprint.pprint(sorted(prob_dict.items()))
+        
+
+#import pprint
+#pprint.pprint(sorted(prob_dict.items()))
+#pprint.pprint(sorted(pair_prob.items()))
 #print(sorted(prob_dict.items()))
 
 # Plotting the histogram
