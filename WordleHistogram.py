@@ -16,6 +16,7 @@ if len(fname) < 1:
 text = open(fname)
 
 letters = dict()
+pairs = dict()
 count = 0
 max_letter = ''
 
@@ -25,14 +26,21 @@ for line in text:
     for word in words:
         print("New Word") # Loop through each word
         word = re.sub(r'[^\w\s]','', word) # Remove the unnecessary punctuation
-        for l in word: 
-            print(l) # Loop through each letter
+        pair = word[:2]
+        if pair not in pairs: # Count the occurrence of pairs of letters
+            pairs[pair] = 1
+            print("First pair")
+        else : # If we have seen it before, add another 1 to the previous count
+            pairs[pair] = pairs[pair] + 1
+            print("Seen this pair before")
+        for l in word: # Counting single letter occurrences 
+            print("letter") # Loop through each letter
             if l not in letters: # If it is a new letter set it to 1
                 letters[l] = 1
-                print("this is new")
+                print("First time seeing this letter")
             else : # If we have seen it before, add another 1 to the previous count
                 letters[l] = letters[l] + 1
-                print("seen it before")
+                print("I have seen this letter before")
 
 # Loop to find the most common letter
 for ltr in letters :
