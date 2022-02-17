@@ -16,7 +16,8 @@ if len(fname) < 1:
 text = open(fname)
 
 letters = dict()
-pairs = dict()
+first_pairs = dict()
+last_pairs = dict()
 count = 0
 max_letter = ''
 
@@ -26,14 +27,27 @@ for line in text:
     for word in words:
         print("New Word") # Loop through each word
         word = re.sub(r'[^\w\s]','', word) # Remove the unnecessary punctuation
-        pair = word[:2]
-        if pair not in pairs: # Count the occurrence of pairs of letters
-            pairs[pair] = 1
-            print("First pair")
+        
+        # Get the occurrence of pairs of letters at the start of the words
+        first_pair = word[:2]
+        if first_pair not in first_pairs: 
+            first_pairs[first_pair] = 1
+            print("new first pair")
         else : # If we have seen it before, add another 1 to the previous count
-            pairs[pair] = pairs[pair] + 1
-            print("Seen this pair before")
-        for l in word: # Counting single letter occurrences 
+            first_pairs[first_pair] = first_pairs[first_pair] + 1
+            print("Seen this first pair before")
+            
+        # Get the occurrence of pairs of letters at the end of the words
+        last_pair = word[3:]
+        if last_pair not in last_pairs: 
+            last_pairs[last_pair] = 1
+            print("new last pair")
+        else : # If we have seen it before, add another 1 to the previous count
+            last_pairs[last_pair] = last_pairs[last_pair] + 1
+            print("Seen this last pair before")
+             
+        # Counting single letter occurrences 
+        for l in word: 
             print("letter") # Loop through each letter
             if l not in letters: # If it is a new letter set it to 1
                 letters[l] = 1
@@ -44,10 +58,10 @@ for line in text:
 
 # Loop to find the most common letter
 for ltr in letters :
-    if letters[l] > count:
-        count = letters[l]
+    if letters[ltr] > count:
+        count = letters[ltr]
         max_letter = ltr
-        print("The letter that appears most is:", l,"with", count, "occurrences")
+print("The letter that appears most is:", max_letter,"with", count, "occurrences")
         
 # Probability of each letter occurring
 vals = letters.values()
@@ -60,10 +74,16 @@ for k, v in letters.items():
     print("probabililty of", k, "=", prob_dict[k], "%")
     
 print("Probability of Starting Pairs")
-pair_prob = {}
-for k,v in pairs.items():
-    pair_prob[k] = (v/2315)*100
-    print("probabililty of", k, "=", pair_prob[k], "%")
+first_pair_prob = {}
+for k,v in first_pairs.items():
+    first_pair_prob[k] = (v/2315)*100
+    print("probabililty of", k, "=", first_pair_prob[k], "%")
+    
+print("Probability of Ending Pairs")
+last_pair_prob = {}
+for k,v in last_pairs.items():
+    last_pair_prob[k] = (v/2315)*100
+    print("probabililty of", k, "=", last_pair_prob[k], "%")
 
         
 
