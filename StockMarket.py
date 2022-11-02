@@ -22,7 +22,7 @@ tickerSymbol = 'AAPL'
 #startDate = input("Enter a start date (YYYY-MM-DD): ")
 startDate = '2010-01-01'
 #endDate = input("Enter an end date (YYYY-MM-DD): ")
-endDate = '2019-10-30'
+endDate = '2019-03-01'
 #interval = input("Select an interval (day/month/year): ")
 
 #get data on this ticker
@@ -169,6 +169,11 @@ sma_rmse = calculate_rmse(tickerDf['Close'], tickerDf['50_EMA'])
 print(sma_rmse)
 sma_mape = calculate_mape(tickerDf['Close'], tickerDf['20_EMA'])
 print(sma_mape)
+
+## Add in an LSTM model
+
+
+
 
 
 
