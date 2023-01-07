@@ -7,7 +7,6 @@ Created on Mon Feb  7 17:50:26 2022
 """
 
 # Wordle Histogram
-import re
 import matplotlib.pyplot as plt
 
 # fname = input("Enter file name: ")
@@ -30,12 +29,11 @@ last_pairs = dict()
 count = 0
 max_letter = ''
 
-
 for line in text:
     words = line.split()
-    for word in words:
+    for n in range(len(words)):
         print("New Word") # Loop through each word
-        word = re.sub(r'[^\w\s]','', word) # Remove the unnecessary punctuation
+        word = words[n]
         
 # First Letter
         first_letter = word[0]
@@ -121,6 +119,7 @@ print("The letter that appears most is:", max_letter,"with", count, "occurrences
 # Probability of each letter occurring
 vals = letters.values()
 total = sum(vals)
+p = n+1
 
 print('Most Common Letter')
 prob_dict = {}
@@ -131,21 +130,22 @@ for k, v in letters.items():
 print("Probability of Starting Pairs")
 first_pair_prob = {}
 for k,v in first_pairs.items():
-    first_pair_prob[k] = (v/2315)*100
+    first_pair_prob[k] = (v/p)*100
     print("probabililty of", k, "=", first_pair_prob[k], "%")
     
 print("Probability of Ending Pairs")
 last_pair_prob = {}
 for k,v in last_pairs.items():
-    last_pair_prob[k] = (v/2315)*100
+    last_pair_prob[k] = (v/p)*100
     print("probabililty of", k, "=", last_pair_prob[k], "%")
     
 # Most common first letter
 print('Most Common First Letter')
 first_dict = {}
 for k, v in first_letters.items():
-    first_dict[k] = (v / 2315)*100
+    first_dict[k] = (v / p)*100
     print("probabililty of", k, "=", first_dict[k], "%")
+count = 0
 for ltr in first_letters :
     if first_letters[ltr] > count:
         count = first_letters[ltr]
@@ -153,13 +153,14 @@ for ltr in first_letters :
 print("The letter that appears most is:", max_letter,"with", count, "occurrences")
 # Most common starting letter is 'S'
 plt.bar(list(first_letters.keys()), first_letters.values(), color='b')
+plt.title("Most Common First Letter")
 plt.show()
 
 # Most common second letter
 print('Most Common Second Letter')
 second_dict = {}
 for k, v in second_letters.items():
-    second_dict[k] = (v / 2315)*100
+    second_dict[k] = (v / p)*100
     print("probabililty of", k, "=", second_dict[k], "%")
 count = 0
 for ltr in second_letters :
@@ -169,13 +170,14 @@ for ltr in second_letters :
 print("The letter that appears most is:", max_letter,"with", count, "occurrences")
 # Most common second letter is 'A'
 plt.bar(list(second_letters.keys()), second_letters.values(), color='b')
+plt.title("Most Common Second Letter")
 plt.show()
         
 # Most common third letter
 print('Most Common Third Letter')
 third_dict = {}
 for k, v in third_letters.items():
-    third_dict[k] = (v / 2315)*100
+    third_dict[k] = (v / p)*100
     print("probabililty of", k, "=", third_dict[k], "%")
 count = 0
 for ltr in third_letters :
@@ -185,13 +187,14 @@ for ltr in third_letters :
 print("The letter that appears most is:", max_letter,"with", count, "occurrences")
 # Most common third letter is 'A'
 plt.bar(list(third_letters.keys()), third_letters.values(), color='b')
+plt.title("Most Common Third Letter")
 plt.show()
 
 # Most common fourth letter
-print('Most Common fourth Letter')
+print('Most Common Fourth Letter')
 fourth_dict = {}
 for k, v in fourth_letters.items():
-    fourth_dict[k] = (v / 2315)*100
+    fourth_dict[k] = (v / p)*100
     print("probabililty of", k, "=", fourth_dict[k], "%")
 count = 0
 for ltr in fourth_letters :
@@ -201,13 +204,14 @@ for ltr in fourth_letters :
 print("The letter that appears most is:", max_letter,"with", count, "occurrences")
 # Most common fourth letter is 'E'
 plt.bar(list(fourth_letters.keys()), fourth_letters.values(), color='b')
+plt.title("Most Common Fourth Letter")
 plt.show()
 
 # Most common fifth letter
-print('Most Common fifth Letter')
+print('Most Common Fifth Letter')
 fifth_dict = {}
 for k, v in fifth_letters.items():
-    fifth_dict[k] = (v / 2315)*100
+    fifth_dict[k] = (v / p)*100
     print("probabililty of", k, "=", fifth_dict[k], "%")
 count = 0
 for ltr in fifth_letters :
@@ -215,10 +219,10 @@ for ltr in fifth_letters :
         count = fifth_letters[ltr]
         max_letter = ltr
 print("The letter that appears most is:", max_letter,"with", count, "occurrences")
-# Most common fifth letter is 'A'
+# Most common fifth letter is 'E'
 plt.bar(list(fifth_letters.keys()), fifth_letters.values(), color='b')
+plt.title("Most Common Fifth Letter")
 plt.show()
-# STANE
 
 #import pprint
 #pprint.pprint(sorted(prob_dict.items()))
@@ -227,6 +231,7 @@ plt.show()
 
 # Plotting the histogram
 plt.bar(list(letters.keys()), letters.values(), color='g')
+plt.title("Occurrences of Letters")
 plt.show()
 
 
