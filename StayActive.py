@@ -1,8 +1,9 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jan  9 15:53:23 2023
+Created on Fri Jan  6 05:18:31 2023
 
-@author: jsommerfeld
+@author: joelsommerfeld
 """
 
 # What os?
@@ -33,23 +34,19 @@ if os == 'mac':
     t(2)
     p.keyUp("command")
     p.keyUp("space")
-    p.typewrite("word")
+    p.typewrite("teams")
     p.press("enter")
-
+    # pyautogui.hotkey('command', 'space')
+    # time.sleep(2)
+    # pyautogui.typewrite('teams')
+    # pyautogui.press('enter')
 elif os == 'windows': 
     print("we are using windows")
-    p.press('winleft')
-    t(2)
-    p.typewrite('teams')
-    p.press('enter')
-    p.keyDown('shift')
-    p.keyDown('winleft')
-    p.keyDown('left')
-    p.keyUp('shift')
-    p.keyUp('winleft')
-    p.keyUp('left')
-    
-print("Starting fitness routine")
+    # pyautogui.press('winleft')
+    # time.sleep(2)
+    # pyautogui.typewrite('word')
+    # pyautogui.press('enter')
+
 # print("Move program to main monitor")
 # time.sleep(7)
 
@@ -67,4 +64,5 @@ while minutes_diff < 3:
     t(4)
     current_time = dt.datetime.now()
     minutes_diff = (current_time - start_time).total_seconds() / 60.0
+
 
