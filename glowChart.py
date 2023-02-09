@@ -1,16 +1,15 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Feb  2 09:24:40 2023
+Created on Thu Feb  9 09:04:49 2023
 
-@author: joelsommerfeld
+@author: jsommerfeld
 """
 
 import matplotlib.pyplot as plt
 import mplcyberpunk
 import pandas as pd
 
-df = pd.read_csv('/Users/joelsommerfeld/Downloads/AR TEST/Results/BarPink_spattemp copy.csv')
+df = pd.read_csv("C:/Users/jsommerfeld/Desktop/NONAN/strides.csv")
 
 def splitSerToArr(ser):
     return [ser.index, ser.to_numpy()]
@@ -26,7 +25,7 @@ plt.style.use("cyberpunk")
 plt.plot( *splitSerToArr(s1.dropna()), linestyle='-', marker='o')
 plt.plot( *splitSerToArr(s2.dropna()), linestyle='-', marker='o')
 #plt.legend(['Right Leg', 'Left Leg'])
-#plt.title('Stride Time Intervals')
+#plt.title('Stride Time Intervals', fontsize = 20 )
 plt.ylabel('Stride Time (s)', fontsize = 15 )
 plt.xlabel('Stride Number', fontsize = 15 )
 mplcyberpunk.make_lines_glow()
@@ -132,8 +131,10 @@ plt.grid(b=None)
 plt.show()
 
 
-# I want the walking yellow and green - done
-# I want the breathing blue
-# I want the heart red - done
-# I want the brain pink, purple,  
+# I want the walking yellow and green - 'f0e922', '6ef227'
+# I want the breathing blue - '35c7de'
+# I want the heart red - 'r'
+# I want the brain pink, purple, cream and another one - 'fc5ba1', 'b64cd4', 'faed9b', 'f0b23e'
+
+# Background - 0A0A0A
 
