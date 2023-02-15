@@ -5,93 +5,93 @@ Created on Thu Feb  9 09:04:49 2023
 @author: jsommerfeld
 """
 
-import matplotlib.pyplot as plt
-import mplcyberpunk
-import pandas as pd
+# import matplotlib.pyplot as plt
+# import mplcyberpunk
+# import pandas as pd
 
-df = pd.read_csv("C:/Users/jsommerfeld/Desktop/NONAN/strides.csv")
+# df = pd.read_csv('/Users/joelsommerfeld/Downloads/AR TEST/Results/BarPink_spattemp copy.csv')
 
-def splitSerToArr(ser):
-    return [ser.index, ser.to_numpy()]
+# def splitSerToArr(ser):
+#     return [ser.index, ser.to_numpy()]
 
-xs = range(57)
+# xs = range(57)
 
-series1 = df['Left']
-series2 = df['Right']
-s1 = pd.Series(series1, index=xs)
-s2 = pd.Series(series2, index=xs)
+# series1 = df['Left']
+# series2 = df['Right']
+# s1 = pd.Series(series1, index=xs)
+# s2 = pd.Series(series2, index=xs)
 
-plt.style.use("cyberpunk")
-plt.plot( *splitSerToArr(s1.dropna()), linestyle='-', marker='o')
-plt.plot( *splitSerToArr(s2.dropna()), linestyle='-', marker='o')
-#plt.legend(['Right Leg', 'Left Leg'])
-#plt.title('Stride Time Intervals', fontsize = 20 )
-plt.ylabel('Stride Time (s)', fontsize = 15 )
-plt.xlabel('Stride Number', fontsize = 15 )
-mplcyberpunk.make_lines_glow()
-plt.axis('off')
-plt.grid(b=None)
-plt.show()
-
-
+# plt.style.use("cyberpunk")
+# plt.plot( *splitSerToArr(s1.dropna()), linestyle='-', marker='o')
+# plt.plot( *splitSerToArr(s2.dropna()), linestyle='-', marker='o')
+# #plt.legend(['Right Leg', 'Left Leg'])
+# #plt.title('Stride Time Intervals', fontsize = 20 )
+# plt.ylabel('Stride Time (s)', fontsize = 15 )
+# plt.xlabel('Stride Number', fontsize = 15 )
+# mplcyberpunk.make_lines_glow()
+# plt.axis('off')
+# plt.grid(b=None)
+# plt.show()
 
 
-import matplotlib.pyplot as plt
-import numpy as np
-import mplcyberpunk
-
-Fs = 8000
-f = 5
-sample = 12000
-x = np.arange(sample)
-
-y = 2 * np.sin(1 * np.pi * f * x / Fs) # blue
-z = 1.4 * np.sin(0.4 * np.pi * 7 * x / Fs) # pink
-s = 0.6 * np.sin(4 * np.pi * 3 * x / Fs) # yellow
-b = np.cos(2 * 0.4 * 3 * x / 2500) # green
-c = 0.2 * np.cos(2 * 0.4 * 9 * x / 2500) # red
 
 
-plt.style.use("cyberpunk")
-plt.plot(y)
-plt.plot(z)
-plt.plot(s)
-plt.plot(b)
-plt.plot(c)
-mplcyberpunk.make_lines_glow()
-plt.axis('off')
-plt.grid(b=None)
-plt.show()
+# import matplotlib.pyplot as plt
+# import numpy as np
+# import mplcyberpunk
+
+# Fs = 8000
+# f = 5
+# sample = 12000
+# x = np.arange(sample)
+
+# y = 2 * np.sin(1 * np.pi * f * x / Fs) # blue
+# z = 1.4 * np.sin(0.4 * np.pi * 7 * x / Fs) # pink
+# s = 0.6 * np.sin(4 * np.pi * 3 * x / Fs) # yellow
+# b = np.cos(2 * 0.4 * 3 * x / 2500) # green
+# c = 0.2 * np.cos(2 * 0.4 * 9 * x / 2500) # red
 
 
-# import electrocardiogram
-import matplotlib.pyplot as plt
-from scipy.misc import electrocardiogram
+# plt.style.use("cyberpunk")
+# plt.plot(y)
+# plt.plot(z)
+# plt.plot(s)
+# plt.plot(b)
+# plt.plot(c)
+# mplcyberpunk.make_lines_glow()
+# plt.axis('off')
+# plt.grid(b=None)
+# plt.show()
+
+
+## import electrocardiogram
+# import matplotlib.pyplot as plt
+# from scipy.misc import electrocardiogram
   
-# import numpy
-import numpy as np
+# # import numpy
+# import numpy as np
   
-# define electrocardiogram as ecg model
-ecg = electrocardiogram()
+# # define electrocardiogram as ecg model
+# ecg = electrocardiogram()
   
-# frequency is 360
-frequency = 360
+# # frequency is 360
+# frequency = 360
   
-# calculating time data with ecg size along with frequency
-time_data = np.arange(ecg.size) / frequency
+# # calculating time data with ecg size along with frequency
+# time_data = np.arange(ecg.size) / frequency
   
-import mplcyberpunk
+# import mplcyberpunk
 
-# plotting time and ecg model
-plt.style.use("cyberpunk")
-plt.plot(time_data, ecg)
-plt.xlim(10, 13.5)
-plt.ylim(-1.2, 1.5)
-mplcyberpunk.make_lines_glow()
-plt.axis('off')
-plt.grid(b=None)
-# display
-plt.show()
+# # plotting time and ecg model
+# plt.style.use("cyberpunk")
+# plt.plot(time_data, ecg)
+# plt.xlim(10, 13.5)
+# plt.ylim(-1.2, 1.5)
+# mplcyberpunk.make_lines_glow()
+# plt.axis('off')
+# plt.grid(b=None)
+# # display
+# plt.show()
 
 
 import matplotlib.pyplot as plt
@@ -134,7 +134,7 @@ plt.show()
 # I want the walking yellow and green - 'f0e922', '6ef227'
 # I want the breathing blue - '35c7de'
 # I want the heart red - 'r'
-# I want the brain pink, purple, cream and another one - 'fc5ba1', 'b64cd4', 'faed9b', 'f0b23e'
+# I want the brain pink, purple, cream and another one - 'fc5ba1', 'b64cd4', 'faed9b', 'f0b23e', 'c9716b'
 
 # Background - 0A0A0A
 
