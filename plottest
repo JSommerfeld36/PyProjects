@@ -1,0 +1,15 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Generate random data
+x = np.random.rand(100)
+y = np.random.rand(100)
+
+# Create a scatter plot
+plt.scatter(x, z)
+
+# Intentional error: referencing an undefined variable 'z'
+plt.title("Scatter plot of random data")
+
+# Show the plot
+plt.show()
